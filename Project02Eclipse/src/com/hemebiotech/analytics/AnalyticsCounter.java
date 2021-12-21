@@ -36,7 +36,7 @@ public class AnalyticsCounter {
      * @return void
      */
     private static TreeMap<String, Integer> CountSymptoms(List<String> symptoms) {
-        var symptomsMap = new HashMap<String, Integer>();
+        var symptomsMap = new TreeMap<String, Integer>();
         for (String symptom : symptoms) {
             if (symptomsMap.containsKey(symptom)) {
                 symptomsMap.put(symptom, symptomsMap.get(symptom) + 1);
@@ -44,9 +44,8 @@ public class AnalyticsCounter {
                 symptomsMap.put(symptom, 1);
             }
         }
-        var sortedSymptoms = new TreeMap<>(symptomsMap);
 
-        sortedSymptoms.forEach((key, value) -> System.out.println(key + "=" + value + ";"));
-        return sortedSymptoms;
+        symptomsMap.forEach((key, value) -> System.out.println(key + "=" + value + ";"));
+        return symptomsMap;
     }
 }
