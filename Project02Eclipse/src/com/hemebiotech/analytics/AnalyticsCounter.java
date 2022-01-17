@@ -20,7 +20,7 @@ public class AnalyticsCounter {
         this.writer = writer;
     }
 
-    public void Execute() {
+    public void execute() {
         List<String> symptoms = this.reader.getSymptoms();
 
         TreeMap<String, Integer> sortedSymptoms = CountSymptoms(symptoms);
@@ -35,7 +35,7 @@ public class AnalyticsCounter {
      * @param symptoms list
      * @return void
      */
-    private static TreeMap<String, Integer> CountSymptoms(List<String> symptoms) {
+    private TreeMap<String, Integer> CountSymptoms(List<String> symptoms) {
         var symptomsMap = new TreeMap<String, Integer>();
         for (String symptom : symptoms) {
             if (symptomsMap.containsKey(symptom)) {
