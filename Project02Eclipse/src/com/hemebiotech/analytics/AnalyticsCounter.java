@@ -3,7 +3,6 @@ package com.hemebiotech.analytics;
 import com.hemebiotech.analytics.reader.ISymptomReader;
 import com.hemebiotech.analytics.writer.ISymptomWriter;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -23,7 +22,7 @@ public class AnalyticsCounter {
     public void execute() {
         List<String> symptoms = this.reader.getSymptoms();
 
-        TreeMap<String, Integer> sortedSymptoms = CountSymptoms(symptoms);
+        TreeMap<String, Integer> sortedSymptoms = countSymptoms(symptoms);
 
         this.writer.export(sortedSymptoms);
 
@@ -35,7 +34,7 @@ public class AnalyticsCounter {
      * @param symptoms list
      * @return void
      */
-    private TreeMap<String, Integer> CountSymptoms(List<String> symptoms) {
+    private TreeMap<String, Integer> countSymptoms(List<String> symptoms) {
         var symptomsMap = new TreeMap<String, Integer>();
         for (String symptom : symptoms) {
             if (symptomsMap.containsKey(symptom)) {
