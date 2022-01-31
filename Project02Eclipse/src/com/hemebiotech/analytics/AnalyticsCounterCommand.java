@@ -7,19 +7,11 @@ public class AnalyticsCounterCommand {
 
     public static void main(String[] args) {
 
-        CheckArguments(args);
-
         new AnalyticsCounter(
-                new FileSymptomReader(args[0]),
-                new FileSymptomWriter(args[1])
-        ).Execute();
+                new FileSymptomReader("symptoms.txt"),
+                new FileSymptomWriter("result.out")
+        ).execute();
 
     }
 
-    private static void CheckArguments(String[] args) {
-        if (args.length != 2) {
-            System.out.println("You need 2 argument, " + args.length + " provided");
-            System.exit(1);
-        }
-    }
 }
